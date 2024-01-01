@@ -2,11 +2,14 @@
 {% block title %} Home Page {% endblock title%}
 {% block content %}
     <div class="jumbotron">
-        <h1 class="display-4">Welcome, {{user.first_name.title|default:'Guest'}}</h1>
+        <h1 class="display-4">10k<span style="font-size: larger;">SETX</span></h1>
+        <br>
+        <h3 >Welcome, {{user.first_name.title|default:'Guest'}}</h3>
         <p class="lead">
-            This is <b>user registration and login system</b> build with django which is
-            a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
+            The objective of this group is to strive for Excellence in Software Engineering technology for the community(k).
         </p>
+        <p>All the students in CPS 501 Advanced Programming & Datastructures, CPS 510 Systems Analyis, CPS 518 Software Engineering, CPS 520 Sofware Project Management students and others are requested to join the group. This group plans to meet once a weeek on Friday at 3PM to address the common problems in those classes it's overall goal is to help each induvidual to achieve his/her primary interest areas. The group will work together to contrbute all the interested areas by pulling the resources classromms/zooms/presentations and working on scholarly publications. Any gcomputer science graduate students are welcome to join this group and to contribute.We hope to strive for excellence.</p>
+        <p>For more information, please fill out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMs5h2OS6K8wrtRzznkmhoJz1I_9vYk-AnT62M9gXTwkBHDw/viewform?vc=0&c=0&w=1&flr=0" target="_blank">Google Form</a>.</p>
         <hr class="my-4">
         <p class="lead">
             {% if user.is_authenticated %}
@@ -15,6 +18,7 @@
                 <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign in</a>
             {% endif %}
         </p>
+
     </div>
 
 {% endblock content %}
