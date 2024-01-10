@@ -5,11 +5,11 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from users.views import CustomLoginView, ResetPasswordView, ChangePasswordView
 from users.forms import LoginForm
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
-#     path('google-form/', include('googleForm.urls'), name='google-form'),  # Adjust the path and name
     path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='users/login.html',
                                            authentication_form=LoginForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
@@ -23,3 +23,5 @@ urlpatterns = [
     path('password-change/', ChangePasswordView.as_view(), name='password_change'),
     re_path(r'^oauth/', include('social_django.urls', namespace='social')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()

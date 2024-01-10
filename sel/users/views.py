@@ -10,7 +10,16 @@ from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 
 
 def home(request):
-    return render(request, 'users/home.html')
+    topics = [    
+        ('Research Methodology, Plan for Master’s Thesis and Ph.D.', []),
+        ('Mock Interviews', []),
+        ('CASE Tools, Drawing Tools(draw.io/draw.net)', []),
+        ('Frameworks for Mobile, Web, and Enterprise Applications', ['Django']),
+        ('Generative AI', []),
+        # Add other frameworks as needed
+    ]
+    return render(request, 'users/home.html', {'topics': topics})
+    
 
 
 class RegisterView(View):
@@ -95,3 +104,5 @@ def profile(request):
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
     return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
